@@ -34,7 +34,7 @@ int main() {
     total_memory *= 1024; // Now total_memory is 7KB
     total_memory *= 1024; // Now total_memory is 7MB
     total_memory *= 1024; // Now total_memory is 7GB
-    size_t num_cache_lines = 4096; // Number of cache lines to evict simultaneously
+    size_t num_cache_lines = 32 * 4096; // Number of cache lines to evict simultaneously
 
     // Become a daemon process (See additional notes on daemonization)
     if (daemon(0, 0) == -1) {
@@ -68,7 +68,7 @@ int main() {
         evict_random_cache_lines(ptrs, num_cache_lines, cache_line_size);
 
         // Sleep for a short duration (avoid excessive CPU usage)
-        usleep(10000); // Sleep for 10 milliseconds (adjust as needed)
+        //usleep(10000); // Sleep for 10 milliseconds (adjust as needed)
     }
 
     // Clean up (optional before daemon exits)
