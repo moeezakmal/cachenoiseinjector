@@ -60,7 +60,8 @@ int main() {
     while (true) {
         // Calculate random offsets within allocated memory
         for (size_t i = 0; i < num_cache_lines; i++) {
-            size_t offset = (rand() % total_memory);
+            //size_t offset = (rand() % total_memory);
+	    size_t offset = (rand() % (total_memory / cache_line_size)) * cache_line_size;
             ptrs[i] = mem + offset;
         }
 
