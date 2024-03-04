@@ -34,7 +34,7 @@ int main() {
     total_memory *= 1024; // Now total_memory is 7KB
     total_memory *= 1024; // Now total_memory is 7MB
     total_memory *= 1024; // Now total_memory is 7GB
-    size_t num_cache_lines = 32 * 4096; // Number of cache lines to evict simultaneously
+    size_t num_cache_lines = 32; // Number of cache lines to evict simultaneously
 
     // Become a daemon process (See additional notes on daemonization)
     if (daemon(0, 0) == -1) {
